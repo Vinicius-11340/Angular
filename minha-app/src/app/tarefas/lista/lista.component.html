@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Minha Lista de Tarefas</h2>
+
+    <div class="adicionar-tarefa">
+        <input type="text" [(ngModel)]="novaTarefaTexto" placeholder="Nova tarefa..."
+            (keyup.enter)="adicionarTarefa()"><button (click)="adicionarTarefa()">Adicionar</button>
+    </div>
+
+    <ul class="lista-tarefas">
+        <li * ngFor="Let tarefa of tarefas" [class.concluida]="tarefa.concluida">
+
+            <input type="checkbox" [checked]="tarefa.concluida" (change)="alternarStatus(tarefa.id)">
+
+            <span class="texto-tarefa">{{tarefa.texto}}</span>
+
+            <button class="botao-remover" (click)="removerTarefa (tarefa.id)">Excluir</button>
+        </li>
+    </ul>
+</div>
